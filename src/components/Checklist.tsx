@@ -11,11 +11,11 @@ function Checklist(props: ChecklistProps) {
 
   const style = {
     border: "1px solid black",
-  }
+  };
 
   return (
     <article style={style}>
-      <div> 
+      <div>
         <button>Rename</button>
         <button>New Item</button>
         <button>Delete</button>

@@ -16,9 +16,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "build": "npm test * && vite build",
+    "format": "npx prettier --write *",
+    "serve": "vite preview",
     "start": "vite --open",
-    "build": "vite build",
-    "serve": "vite preview"
+    "test": "npx prettier --check *"
   },
   "eslintConfig": {
     "extends": [
@@ -41,7 +43,9 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.4",
     "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-prettier": "^5.0.0",
     "vite": "^4.4.9",
     "vite-plugin-eslint": "^1.8.1"
   }

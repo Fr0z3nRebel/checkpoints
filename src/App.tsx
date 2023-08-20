@@ -1,9 +1,9 @@
-import Footer from './mainComponents/Footer';
-import Header from './mainComponents/Header';
-import Checklist from './components/Checklist';
+import Footer from "./mainComponents/Footer";
+import Header from "./mainComponents/Header";
+import Checklist from "./components/Checklist";
 
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
 function App() {
   return (

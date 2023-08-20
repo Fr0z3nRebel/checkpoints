@@ -1,0 +1,14 @@
+# Ignore artifacts:
+build
+node_modules
+public
+
+.eslintrc
+.gitignore
+.prettierignore
+README.md
+
+# Ignore all CSS, HTML, and JSON files:
+*.css
+*.html
+*.json
