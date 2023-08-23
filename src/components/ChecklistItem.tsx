@@ -9,8 +9,8 @@ function ChecklistItem(props: ChecklistItemProps) {
 
   return (
     <p>
-      <input type="checkbox" />
-      <label>{label}</label>
+      <input className="w3-check" type="checkbox" />
+      <label>&nbsp;{label}</label>
     </p>
   );
 }

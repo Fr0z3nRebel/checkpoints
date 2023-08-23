@@ -7,23 +7,27 @@ interface ChecklistProps {
 }
 
 function Checklist(props: ChecklistProps) {
-  const [title, setTitle] = useState(props.title || "");
-
-  const style = {
-    border: "1px solid black",
-  };
+  const [title, setTitle] = useState(props.title || "Untitled");
 
   return (
-    <article style={style}>
-      <div>
-        <button>Rename</button>
-        <button>New Item</button>
-        <button>Delete</button>
+    <article className="w3-card w3-margin">
+      <div className="w3-bar w3-padding w3-theme">
+        <div className="w3-bar-item w3-button">
+          <b>{title}</b>
+        </div>
+        <div className="w3-right">
+          <button className="w3-button">R</button>
+          <button className="w3-button">N</button>
+          <button className="w3-button">D</button>
+        </div>
       </div>
-      <h2>{title}</h2>
-      <ChecklistItem label="Checklist Item 1" />
-      <ChecklistItem label="Checklist Item 2" />
-      <ChecklistItem label="Checklist Item 3" />
+      <div className="w3-container w3-padding">
+        <div className="w3-left">
+          <ChecklistItem label="Checklist Item 1" />
+          <ChecklistItem label="Checklist Item 2" />
+          <ChecklistItem label="Checklist Item 3" />
+        </div>
+      </div>
     </article>
   );
 }

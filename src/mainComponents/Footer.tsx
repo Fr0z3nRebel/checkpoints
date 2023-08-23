@@ -2,8 +2,8 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer>
-      <p>Copyright &copy; 2023. John Adams. All Rights Reserved.</p>
+    <footer className="w3-padding w3-theme-d5">
+      <p>Copyright &copy; 2023. Lefty Studios, LLC. All Rights Reserved.</p>
     </footer>
   );
 }
