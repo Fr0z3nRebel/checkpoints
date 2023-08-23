@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import ChecklistButton from "../button/ChecklistButton";
 import ChecklistItem from "./ChecklistItem";
 
 interface ChecklistProps {
@@ -16,9 +17,9 @@ function Checklist(props: ChecklistProps) {
           <b>{title}</b>
         </div>
         <div className="w3-right">
-          <button className="w3-button">R</button>
-          <button className="w3-button">N</button>
-          <button className="w3-button">D</button>
+          <ChecklistButton label="R" />
+          <ChecklistButton label="N" />
+          <ChecklistButton label="D" />
         </div>
       </div>
       <div className="w3-container w3-padding">
