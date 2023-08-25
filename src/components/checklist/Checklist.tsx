@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import ChecklistButton from "../button/ChecklistButton";
-import ChecklistItem from "./ChecklistItem";
+import { ChecklistItem } from "./ChecklistItem";
 
 interface ChecklistProps {
   title?: string;

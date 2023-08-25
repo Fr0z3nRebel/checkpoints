@@ -1,18 +1,33 @@
 import { useState } from "react";
 
-interface ChecklistItemProps {
-  label?: string;
+export interface ChecklistItemProps {
+  label: string;
+  checked?: boolean;
 }
 
-function ChecklistItem(props: ChecklistItemProps) {
-  const [label, setLabel] = useState(props.label || "");
+export function ChecklistItem(props: ChecklistItemProps) {
+  const [label, setLabel] = useState(props.label);
+  const [isChecked, setIsChecked] = useState(props.checked || false);
+
+  const style = {
+    color: isChecked ? "gray" : "black",
+    marginLeft: 5,
+    textDecoration: isChecked ? "line-through" : "none",
+  };
+
+  const handleChange = () => {
+    setIsChecked(!isChecked);
+  };
 
   return (
     <p>
-      <input className="w3-check" type="checkbox" />
-      <label>&nbsp;{label}</label>
+      <input
+        className="w3-check"
+        onChange={handleChange}
+        checked={isChecked}
+        type="checkbox"
+      />
+      <label style={style}>{label}</label>
     </p>
   );
 }
-
-export default ChecklistItem;
