@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import ChecklistButton from "../button/ChecklistButton";
+import Button from "../../mainComponents/Button";
 import { ChecklistItem, ChecklistItemProps } from "./ChecklistItem";
 
 export interface ChecklistProps {
@@ -19,9 +19,9 @@ export default function Checklist(props: ChecklistProps) {
           <b>{title}</b>
         </div>
         <div className="w3-right">
-          <ChecklistButton label="R" />
-          <ChecklistButton label="N" />
-          <ChecklistButton label="D" />
+          <Button label="R" />
+          <Button label="N" />
+          <Button label="D" />
         </div>
       </div>
       <div className="w3-container w3-padding">

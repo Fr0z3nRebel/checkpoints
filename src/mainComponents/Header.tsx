@@ -1,5 +1,5 @@
 import React from "react";
-import HeaderButton from "../components/button/HeaderButton";
+import Button from "../mainComponents/Button";
 
 function Header() {
   return (
@@ -9,9 +9,9 @@ function Header() {
           <b>✓P</b> Checkpoints
         </a>
         <div className="w3-right">
-          <HeaderButton label="Login" />
-          <HeaderButton label="New List" />
-          <HeaderButton label="123 ✓P" />
+          <Button label="Login" />
+          <Button label="New List" />
+          <Button label="123 ✓P" />
         </div>
       </div>
     </header>
