@@ -3,14 +3,15 @@ import Header from "./mainComponents/Header";
 import Checklist from "./components/checklist/Checklist";
 
 import "./App.css";
+import { ViewChecklistsPage } from "./components/pages/ViewChecklistsPage.js";
 
 export default function App() {
   return (
     <div className="App">
       <Header />
-      <Checklist title="To Do" />
-      <Checklist title="Shopping" />
-      <Checklist />
+      <div id="page">
+        <ViewChecklistsPage />
+      </div>
       <Footer />
     </div>
   );
