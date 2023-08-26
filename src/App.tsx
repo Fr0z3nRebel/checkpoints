@@ -2,10 +2,9 @@ import Footer from "./mainComponents/Footer";
 import Header from "./mainComponents/Header";
 import Checklist from "./components/checklist/Checklist";
 
-import React from "react";
 import "./App.css";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <Header />
@@ -16,5 +15,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

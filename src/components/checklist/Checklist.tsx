@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import ChecklistButton from "../button/ChecklistButton";
-import { ChecklistItem } from "./ChecklistItem";
+import { ChecklistItem, ChecklistItemProps } from "./ChecklistItem";
 
-interface ChecklistProps {
+export interface ChecklistProps {
   title?: string;
+  items?: ChecklistItemProps[];
 }
 
-function Checklist(props: ChecklistProps) {
-  const [title, setTitle] = useState(props.title || "Untitled");
+export default function Checklist(props: ChecklistProps) {
+  const [title, setTitle] = useState(props.title || "");
+  const [items, setItems] = useState(props.items || []);
 
   return (
     <article className="w3-card w3-margin">
@@ -24,6 +26,9 @@ function Checklist(props: ChecklistProps) {
       </div>
       <div className="w3-container w3-padding">
         <div className="w3-left">
+          {items.map((item) => (
+            <ChecklistItem label={item.label} checked={item.checked} />
+          ))}
           <ChecklistItem label="Checklist Item 1" />
           <ChecklistItem label="Checklist Item 2" />
           <ChecklistItem label="Checklist Item 3" />
@@ -32,5 +37,3 @@ function Checklist(props: ChecklistProps) {
     </article>
   );
 }
-
-export default Checklist;
