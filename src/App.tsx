@@ -1,9 +1,7 @@
+import "./App.css";
 import Footer from "./mainComponents/Footer";
 import Header from "./mainComponents/Header";
-import Checklist from "./components/checklist/Checklist";
-
-import "./App.css";
-import { ViewChecklistsPage } from "./components/pages/ViewChecklistsPage.js";
+import { ViewChecklistsPage } from "./components/pages/ViewChecklistsPage";
 
 export default function App() {
   return (
