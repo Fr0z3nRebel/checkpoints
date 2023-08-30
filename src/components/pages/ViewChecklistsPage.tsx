@@ -31,14 +31,38 @@ const mockData: ChecklistProps[] = [
   },
 ];
 
+const newChecklist = {
+  title: "New Checklist",
+  items: [
+    {
+      label: "New Item",
+      checked: false,
+    },
+  ],
+};
+
 export function ViewChecklistsPage() {
   const [checklists, setChecklists] = useState(mockData);
 
+  const handleNewChecklistClick = () => {
+    setChecklists((prevState) => [...prevState, newChecklist]);
+  };
+
   return (
-    <>
-      {checklists.map((checklist) => (
-        <Checklist key={checklist.title} {...checklist} />
-      ))}
-    </>
+    <div>
+      <div className="w3-container w3-right-align">
+        <div
+          className="w3-blue w3-button w3-card w3-padding w3-padding"
+          onClick={handleNewChecklistClick}
+        >
+          +
+        </div>
+      </div>
+      <>
+        {checklists.map((checklist, index) => (
+          <Checklist key={index} {...checklist} />
+        ))}
+      </>
+    </div>
   );
 }

@@ -4,8 +4,8 @@ import Button from "../../mainComponents/Button";
 import { ChecklistItem, ChecklistItemProps } from "./ChecklistItem";
 
 export interface ChecklistProps {
-  title?: string;
-  items?: ChecklistItemProps[];
+  title: string;
+  items: ChecklistItemProps[];
 }
 
 export default function Checklist(props: ChecklistProps) {
