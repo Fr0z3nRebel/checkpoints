@@ -1,6 +1,6 @@
 import "./App.css";
-import Footer from "./mainComponents/Footer";
-import Header from "./mainComponents/Header";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 import { ViewChecklistsPage } from "./components/pages/ViewChecklistsPage";
 
 export default function App() {

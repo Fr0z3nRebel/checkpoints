@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import Button from "../../mainComponents/Button";
+import Button from "../Button";
 import { ChecklistItem, ChecklistItemProps } from "./ChecklistItem";
 
 export interface ChecklistProps {

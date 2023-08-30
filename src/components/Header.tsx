@@ -1,4 +1,4 @@
-import Button from "../mainComponents/Button";
+import Button from "./Button";
 
 export default function Header() {
   return (
