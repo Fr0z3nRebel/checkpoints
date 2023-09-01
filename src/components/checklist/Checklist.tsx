@@ -18,7 +18,7 @@ export default function Checklist(props: ChecklistProps) {
   const [title, setTitle] = useState(props.title);
   const [items, setItems] = useState(props.items);
 
-  const handleNewChecklistItemClick = () => {
+  const handleCreateChecklistItemClick = () => {
     setItems([
       ...items,
       {
@@ -39,7 +39,7 @@ export default function Checklist(props: ChecklistProps) {
           <b>{title}</b>
         </div>
         <div className="w3-right">
-          <Button label="+" onClick={handleNewChecklistItemClick} />
+          <Button label="+" onClick={handleCreateChecklistItemClick} />
           <Button label="-" onClick={handleDeleteChecklistClick} />
         </div>
       </div>
