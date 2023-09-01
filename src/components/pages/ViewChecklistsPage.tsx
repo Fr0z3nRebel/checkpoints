@@ -1,51 +1,23 @@
+import Checklist from "../checklist/Checklist";
+import { mockData, newChecklist } from "../../utils/mockData.js";
 import { useState } from "react";
-
-import Checklist, { ChecklistProps } from "../checklist/Checklist";
-
-const mockData: ChecklistProps[] = [
-  {
-    title: "Groceries",
-    items: [
-      {
-        label: "Milk",
-        checked: true,
-      },
-      {
-        label: "Bread",
-        checked: false,
-      },
-    ],
-  },
-  {
-    title: "To Do",
-    items: [
-      {
-        label: "Fold the laundry",
-        checked: false,
-      },
-      {
-        label: "Wash the dishes",
-        checked: false,
-      },
-    ],
-  },
-];
-
-const newChecklist = {
-  title: "New Checklist",
-  items: [
-    {
-      label: "New Item",
-      checked: false,
-    },
-  ],
-};
 
 export function ViewChecklistsPage() {
   const [checklists, setChecklists] = useState(mockData);
 
+  const handleDeleteChecklist = (id: number) => {
+    console.log("Deleting checklist: " + id);
+    setChecklists((prevState) =>
+      prevState.filter((checklist) => checklist.uniqueId !== id),
+    );
+    console.log("Checklist deleted!");
+  };
+
   const handleNewChecklistClick = () => {
-    setChecklists((prevState) => [...prevState, newChecklist]);
+    setChecklists((prevState) => [
+      ...prevState,
+      newChecklist(prevState.length),
+    ]);
   };
 
   return (
@@ -59,9 +31,14 @@ export function ViewChecklistsPage() {
         </div>
       </div>
       <>
-        {checklists.map((checklist, index) => (
-          <Checklist key={index} {...checklist} />
-        ))}
+        {checklists.length > 0 &&
+          checklists.map((checklist, index) => (
+            <Checklist
+              key={checklist.title + checklist.uniqueId}
+              {...checklist}
+              onDelete={handleDeleteChecklist}
+            />
+          ))}
       </>
     </div>
   );
