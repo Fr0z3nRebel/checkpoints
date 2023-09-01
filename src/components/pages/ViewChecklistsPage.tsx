@@ -8,7 +8,7 @@ export function ViewChecklistsPage() {
   const handleDeleteChecklist = (id: number) => {
     console.log("Deleting checklist: " + id);
     setChecklists((prevState) =>
-      prevState.filter((checklist) => checklist.uniqueId !== id),
+      prevState.filter((checklist) => checklist.id !== id),
     );
     console.log("Checklist deleted!");
   };
@@ -34,7 +34,7 @@ export function ViewChecklistsPage() {
         {checklists.length > 0 &&
           checklists.map((checklist, index) => (
             <Checklist
-              key={checklist.title + checklist.uniqueId}
+              key={checklist.title + checklist.id}
               {...checklist}
               onDelete={handleDeleteChecklist}
             />

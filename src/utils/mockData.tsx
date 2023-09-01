@@ -3,7 +3,7 @@ import { ChecklistDataProps } from "../components/checklist/Checklist.js";
 export const mockData: ChecklistDataProps[] = [
   {
     title: "Groceries",
-    uniqueId: 0,
+    id: 0,
     items: [
       {
         label: "Milk",
@@ -17,7 +17,7 @@ export const mockData: ChecklistDataProps[] = [
   },
   {
     title: "To Do",
-    uniqueId: 1,
+    id: 1,
     items: [
       {
         label: "Fold the laundry",
@@ -34,7 +34,7 @@ export const mockData: ChecklistDataProps[] = [
 export const newChecklist = (id: number) => {
   return {
     title: "New Checklist",
-    uniqueId: id,
+    id: id,
     items: [
       {
         label: "New Item",

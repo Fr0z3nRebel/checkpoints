@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export interface ChecklistDataProps {
   title: string;
-  uniqueId: number;
+  id: number;
   items: ChecklistItemProps[];
 }
 
@@ -16,11 +16,11 @@ type ChecklistProps = ChecklistDataProps & ChecklistFunctionProps;
 
 export default function Checklist(props: ChecklistProps) {
   const [title, setTitle] = useState(props.title);
-  const [uniqueId, setUniqueId] = useState(props.uniqueId);
+  const [id, setId] = useState(props.id);
   const [items, setItems] = useState(props.items);
 
   const handleDeleteChecklistClick = () => {
-    props.onDelete(props.uniqueId);
+    props.onDelete(id);
   };
 
   return (
@@ -30,7 +30,6 @@ export default function Checklist(props: ChecklistProps) {
           <b>{title}</b>
         </div>
         <div className="w3-right">
-          <Button label={"id: " + props.uniqueId} />
           <Button label="R" />
           <Button label="N" />
           <Button label="D" onClick={handleDeleteChecklistClick} />
