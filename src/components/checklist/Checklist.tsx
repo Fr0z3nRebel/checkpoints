@@ -16,11 +16,20 @@ type ChecklistProps = ChecklistDataProps & ChecklistFunctionProps;
 
 export default function Checklist(props: ChecklistProps) {
   const [title, setTitle] = useState(props.title);
-  const [id, setId] = useState(props.id);
   const [items, setItems] = useState(props.items);
 
+  const handleNewChecklistItemClick = () => {
+    setItems([
+      ...items,
+      {
+        label: "New Item",
+        checked: false,
+      },
+    ]);
+  };
+
   const handleDeleteChecklistClick = () => {
-    props.onDelete(id);
+    props.onDelete(props.id);
   };
 
   return (
@@ -30,16 +39,15 @@ export default function Checklist(props: ChecklistProps) {
           <b>{title}</b>
         </div>
         <div className="w3-right">
-          <Button label="R" />
-          <Button label="N" />
-          <Button label="D" onClick={handleDeleteChecklistClick} />
+          <Button label="+" onClick={handleNewChecklistItemClick} />
+          <Button label="-" onClick={handleDeleteChecklistClick} />
         </div>
       </div>
       <div className="w3-container w3-padding">
         <div className="w3-left-align">
           {items.map((item) => (
             <ChecklistItem
-              key={item.label}
+              key={Math.random() + new Date().toISOString()}
               label={item.label}
               checked={item.checked}
             />
