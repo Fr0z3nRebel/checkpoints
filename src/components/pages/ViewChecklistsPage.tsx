@@ -34,7 +34,7 @@ export function ViewChecklistsPage() {
         {checklists.length > 0 &&
           checklists.map((checklist, index) => (
             <Checklist
-              key={checklist.title + checklist.id}
+              key={Math.random() + new Date().toISOString()}
               {...checklist}
               onDelete={handleDeleteChecklist}
             />

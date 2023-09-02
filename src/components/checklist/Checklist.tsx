@@ -1,11 +1,12 @@
+import { newChecklistItem } from "../../utils/mockData.js";
 import Button from "../Button";
-import { ChecklistItem, ChecklistItemProps } from "./ChecklistItem";
-import { ChangeEvent, SyntheticEvent, useState } from "react";
+import { ChecklistItem, ChecklistItemDataProps } from "./ChecklistItem";
+import { ChangeEvent, useState } from "react";
 
 export interface ChecklistDataProps {
   title: string;
   id: number;
-  items: ChecklistItemProps[];
+  items: ChecklistItemDataProps[];
 }
 
 export interface ChecklistFunctionProps {
@@ -17,7 +18,7 @@ type ChecklistProps = ChecklistDataProps & ChecklistFunctionProps;
 export default function Checklist(props: ChecklistProps) {
   const [title, setTitle] = useState(props.title);
   const [isEditingTitle, setIsEditingTitle] = useState(false);
-  const [items, setItems] = useState(props.items);
+  const [checklistItems, setChecklistItems] = useState(props.items);
 
   // Checklist functions
   const handleDeleteChecklistClick = () => {
@@ -32,13 +33,17 @@ export default function Checklist(props: ChecklistProps) {
 
   // ChecklistItem functions
   const handleCreateChecklistItemClick = () => {
-    setItems([
-      ...items,
-      {
-        label: "New Item",
-        checked: false,
-      },
+    setChecklistItems([
+      ...checklistItems,
+      newChecklistItem(checklistItems.length),
     ]);
+  };
+  const handleDeleteChecklistItem = (id: number) => {
+    console.log("Deleting checklist: " + id);
+    setChecklistItems((prevState) =>
+      prevState.filter((checklistItem) => checklistItem.id !== id),
+    );
+    console.log("Checklist deleted!");
   };
 
   return (
@@ -66,13 +71,15 @@ export default function Checklist(props: ChecklistProps) {
           <Button label="-" onClick={handleDeleteChecklistClick} />
         </div>
       </div>
-      <div className="w3-container w3-padding">
+      <div className="">
         <div className="w3-left-align">
-          {items.map((item) => (
+          {/* TODO: Explore other options for key and id. Maybe UUIDs? */}
+          {/* TODO: Do the same for Checklist components. */}
+          {checklistItems.map((checklistItem) => (
             <ChecklistItem
               key={Math.random() + new Date().toISOString()}
-              label={item.label}
-              checked={item.checked}
+              {...checklistItem}
+              onDelete={handleDeleteChecklistItem}
             />
           ))}
         </div>
