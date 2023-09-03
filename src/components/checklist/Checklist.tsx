@@ -21,14 +21,14 @@ export default function Checklist(props: ChecklistProps) {
   const [checklistItems, setChecklistItems] = useState(props.items);
 
   // Checklist functions
-  const handleDeleteChecklistClick = () => {
-    props.onDelete(props.id);
-  };
   const handleChecklistTitleFocus = () => {
     setIsEditingTitle(!isEditingTitle);
   };
   const handleUpdateChecklistTitle = (event: ChangeEvent<HTMLInputElement>) => {
     setTitle(event.target.value);
+  };
+  const handleDeleteChecklistClick = () => {
+    props.onDelete(props.id);
   };
 
   // ChecklistItem functions
