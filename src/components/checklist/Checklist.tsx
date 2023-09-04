@@ -1,7 +1,7 @@
-import { newChecklistItem } from "../../utils/mockData.js";
 import Button from "../Button";
 import { ChecklistItem, ChecklistItemDataProps } from "./ChecklistItem";
-import { ChangeEvent, useState } from "react";
+import { newChecklistItem } from "../../utils/mockData";
+import React, { ChangeEvent, useState } from "react";
 
 export interface ChecklistDataProps {
   title: string;

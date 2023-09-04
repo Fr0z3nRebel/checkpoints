@@ -1,6 +1,6 @@
 import Checklist from "../checklist/Checklist";
-import { mockData, newChecklist } from "../../utils/mockData.js";
-import { useState } from "react";
+import { mockData, newChecklist } from "../../utils/mockData";
+import React, { useState } from "react";
 
 export function ViewChecklistsPage() {
   const [checklists, setChecklists] = useState(mockData);
